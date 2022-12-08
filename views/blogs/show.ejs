@@ -1,0 +1,50 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <div class="col-md-7 my-3 bg-light rounded">
+        <div class="container my-3">
+            <div class="row">
+                <div class="col">
+                    <p class="text-muted">
+                        <i
+                            >Riya &#9679;
+                            <span>11th Oct 2022</span></i
+                        >
+                    </p>
+                </div>
+
+                <div class="col">
+                    <div class="float-end">
+                        <button
+                            class="btn btn-dark btn-sm bi bi-heart"
+                        ></button>
+                        <button
+                            class="btn btn-dark btn-sm bi bi-bookmark"
+                        ></button>
+
+                        <a
+                            class="btn btn-primary btn-sm bi bi-pencil-square"
+                            href="/blogs/<%=blog._id%>/edit"
+                        ></a>
+                        <form
+                            class="d-inline"
+                            action="/blogs/<%=blog._id%>?_method=DELETE"
+                            method="POST"
+                        >
+                            <button
+                                class="bi bi-trash btn btn-danger btn-sm"
+                            ></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <h1><%= blog.title%></h1>
+            <img
+                src="<%= blog.image%>"
+                class="img-fluid mx-auto d-block rounded mb-2"
+                alt="..."
+            />
+            <p><%= blog.body%></p>
+        </div>
+    </div>
+</div>

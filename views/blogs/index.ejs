@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>All Blogs</h1>
+<div>
+    <a href="/blogs/new">Post new Blog</a>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <% for (let blog of blogs){%>
+
+        <div class="card mb-3 border-0 bg-light">
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="rounded img-fluid" alt="" src="<%=blog.image%>" />
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="card-text mb-2">
+                            <div class="row">
+                                <div class="col">
+                                    <small class="text-muted"><i>Vani Rao &#9679; <%= blog.createdAt.toDateString() %></i></small>
+                                </div>
+                                <div class="col">
+                                    <div class="float-end">
+                                        <button class="btn btn-light btn-sm bi bi-bookmark-plus"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <p class="card-text"><%= blog.body.substring(0,155) %>...<a  href="/blogs/<%=blog._id%>">Read more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }%>
+    </div>
+    <div class="col mb-3 border-start">
+        <div class="d-flex align-items-center ms-3">
+            <form class="subscribe form-floating shadow-sm p-3" action="#">
+                <div class="row g-3 align-items-center d-flex justify-content-center">
+                    <label for="email" class=" px-3 m-2 text-center display-4"
+                        >Never Miss a New Post.</label
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        aria-describedby="emailid"
+                        placeholder="Email Address"
+                    />
+                    <button class="btn btn-secondary mt-2" type="submit">Subscribe</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
